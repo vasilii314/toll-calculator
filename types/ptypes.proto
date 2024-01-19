@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+option go_package = "tolling/types";
+
+service Aggregator {
+    rpc Aggregate(AggregateRequest) returns (None);
+}
+
+message None {}
+
+message GetInvoiceRequest {
+    int32 ObuId = 1;
+}
+
+message AggregateRequest {
+    int32 ObuId = 1;
+    double Value = 2;
+    int64 Unix = 3;
+}
